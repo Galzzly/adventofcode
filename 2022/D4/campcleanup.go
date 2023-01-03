@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"strings"
 	"time"
 
 	"github.com/Galzzly/adventofcode/utilities"
@@ -26,7 +25,7 @@ func main() {
 	flag.Parse()
 
 	var p1, p2 int
-	for _, line := range utilities.ReadFile(file, func(f string) []string { return strings.Split(strings.TrimSpace(f), "\n") }) {
+	for _, line := range utilities.ReadFileLineByLine(file) {
 		var e1start, e1end, e2start, e2end int
 		fmt.Sscanf(line, "%d-%d,%d-%d", &e1start, &e1end, &e2start, &e2end)
 		if e2start >= e1start && e2end <= e1end || e1start >= e2start && e1end <= e2end {

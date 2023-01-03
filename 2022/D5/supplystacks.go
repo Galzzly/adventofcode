@@ -31,13 +31,7 @@ func main() {
 	flag.StringVar(&file, "input", "input.txt", "")
 	flag.Parse()
 
-	sections := utilities.ReadFile(file, func(f string) (res [][]string) {
-		res = [][]string{}
-		for _, lines := range strings.Split(strings.TrimSpace(f), "\n\n") {
-			res = append(res, strings.Split(lines, "\n"))
-		}
-		return
-	})
+	sections := utilities.ReadFileDoubleSingle(file)
 
 	stack, keys := getStacks(sections[0])
 	rules := getRules(sections[1])

@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"sort"
-	"strings"
 	"time"
 
 	"github.com/Galzzly/adventofcode/utilities"
@@ -25,13 +24,7 @@ func main() {
 	flag.StringVar(&file, "input", "input.txt", "")
 	flag.Parse()
 
-	elves := utilities.ReadFile(file, func(f string) [][]string {
-		res := [][]string{}
-		for _, line := range strings.Split(strings.TrimSpace(f), "\n\n") {
-			res = append(res, strings.Split(line, "\n"))
-		}
-		return res
-	})
+	elves := utilities.ReadFileDoubleSingle(file)
 
 	calories := countCalories(elves)
 	t1 := time.Now()

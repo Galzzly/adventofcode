@@ -35,7 +35,7 @@ func main() {
 	flag.StringVar(&file, "input", "input.txt", "")
 	flag.Parse()
 
-	lines := utilities.ReadFile(file, func(f string) []string { return strings.Split(strings.TrimSpace(f), "\n") })
+	lines := utilities.ReadFileLineByLine(file)
 
 	t1 := time.Now()
 	fmt.Println("Part 1:", part1(lines), "- Took:", time.Since(t1))

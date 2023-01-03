@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"strings"
 	"time"
 
 	"github.com/Galzzly/adventofcode/utilities"
@@ -34,7 +33,7 @@ func main() {
 	flag.StringVar(&file, "input", "input.txt", "")
 	flag.Parse()
 
-	input := utilities.ReadFile(file, func(f string) []string { return strings.Split(strings.TrimSpace(f), "\n") })
+	input := utilities.ReadFileLineByLine(file)
 	r1, r2 := game(input)
 	fmt.Println("Part 1:", r1)
 	fmt.Println("Part 2:", r2)
