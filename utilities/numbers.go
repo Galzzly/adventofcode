@@ -18,3 +18,18 @@ func SumArray(a []int) int {
 	}
 	return sum
 }
+
+// Abs returns the absolute value of the input
+func Abs(i int) int {
+	if i < 0 {
+		return -i
+	}
+	return i
+}
+
+func Biggest(a, b int) (res int) {
+	if a < b {
+		return b
+	}
+	return a
+}
